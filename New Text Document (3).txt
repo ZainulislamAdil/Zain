@@ -1,0 +1,273 @@
+package calculator;
+import java.awt.Color;
+
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Image;
+
+import javax.imageio.*;
+import javax.swing.border.*;
+import javax.swing.colorchooser.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.font.*;
+
+import javax.swing.*;
+
+
+	public class cal implements ActionListener{
+		JFrame frame= new JFrame();
+		JPanel panel=new JPanel();
+		JTextArea text= new JTextArea(2,10);
+		JButton b1=new JButton();
+		JButton b2=new JButton();
+		JButton b3=new JButton();
+		JButton b4=new JButton();
+		JButton b5=new JButton();
+		JButton b6=new JButton();
+		JButton b7=new JButton();
+		JButton b8=new JButton();
+		JButton b9=new JButton();
+		JButton b0=new JButton();
+		JButton badd=new JButton();
+		JButton bsub=new JButton();
+		JButton bdiv=new JButton();
+		JButton bmul=new JButton();
+		JButton bclear=new JButton();
+		JButton bdot=new JButton();
+		JButton bequals=new JButton();
+		
+		
+		double number1;
+		double result;
+		double number2;
+		int addc=0,subc=0, mulc=0,divc=0;
+		
+
+		public cal(){
+			frame.setSize(335,410);
+			frame.setVisible(true);
+			frame.setResizable(false);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setTitle("Calculator");
+			frame.setBackground(Color.BLACK);
+			
+			frame.add(panel);
+			
+			panel.setBackground(Color.LIGHT_GRAY);
+			Object borderFactory;
+			Border border = BorderFactory.createLineBorder(Color.RED,5);
+			Border border1 = BorderFactory.createLineBorder(Color.green,2);
+			panel.setBorder(border);
+			bequals.setBorder(null);
+			panel.add(text);
+			text.setBackground(Color.BLACK);
+			Border tborder = BorderFactory.createLineBorder(Color.BLUE,3);
+			text.setBorder(tborder);
+			Font font = new Font ("Arial",Font.BOLD,33);
+			text.setFont(font);
+			text.setForeground(Color.WHITE);
+			text.setPreferredSize( new Dimension (2,10));
+			text.setLineWrap(true);
+			
+			panel.add(b1);
+			panel.add(b2);
+			panel.add(b3);
+			panel.add(b4);
+			panel.add(b5);
+			panel.add(b6);
+			panel.add(b7);
+			panel.add(b8);
+			panel.add(b9);
+			panel.add(b0);
+			panel.add(badd);
+			panel.add(bsub);
+			panel.add(bdiv);
+			panel.add(bmul);
+			panel.add(bdot);
+			panel.add(bclear);
+			panel.add(bequals);
+			
+			b1.setPreferredSize(new Dimension(100,43));
+			b1.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\1.png"));
+			
+			b2.setPreferredSize(new Dimension(100,43));
+			b2.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\2.png"));
+			
+			b3.setPreferredSize(new Dimension(100,43));
+			b3.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\3.png"));
+			
+			b4.setPreferredSize(new Dimension(100,43));
+			b4.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\4.png"));
+			
+			b5.setPreferredSize(new Dimension(100,43));
+			b5.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\5.png"));
+			
+			b6.setPreferredSize(new Dimension(100,43));
+			b6.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\6.png"));
+			
+			b7.setPreferredSize(new Dimension(100,43));
+			b7.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\7.png"));
+			
+			b8.setPreferredSize(new Dimension(100,43));
+			b8.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\8.png"));
+			
+			b9.setPreferredSize(new Dimension(100,43));
+			b9.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\9.png"));
+			
+			b0.setPreferredSize(new Dimension(100,43));
+			b0.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\0.png"));
+			
+			badd.setPreferredSize(new Dimension(100,43));
+			badd.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\add.png"));
+			
+			bsub.setPreferredSize(new Dimension(100,43));
+			bsub.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\sub.png"));
+			
+			bdiv.setPreferredSize(new Dimension(100,43));
+			bdiv.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\div.png"));
+			
+			bmul.setPreferredSize(new Dimension(100,43));
+			bmul.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\mul.png"));
+			
+			bdot.setPreferredSize(new Dimension(100,43));
+			bdot.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\dot.png"));
+			
+			bequals.setPreferredSize(new Dimension(200,35));
+			bequals.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\equals.png"));
+			
+			bclear.setPreferredSize(new Dimension(100,35));
+			bclear.setIcon(new ImageIcon("C:\\Users\\Aqib\\Pictures\\clear.png"));
+			
+			b1.addActionListener(this);
+			b2.addActionListener(this);
+			b3.addActionListener(this);
+			b4.addActionListener(this);
+			b5.addActionListener(this);
+			b6.addActionListener(this);
+			b7.addActionListener(this);
+			b8.addActionListener(this);
+			b9.addActionListener(this);
+			b0.addActionListener(this);
+			badd.addActionListener(this);
+			bsub.addActionListener(this);
+			bdiv.addActionListener(this);
+			bmul.addActionListener(this);
+			bdot.addActionListener(this);
+			bclear.addActionListener(this);
+			bequals.addActionListener(this);
+			
+			
+			
+	}
+
+		   
+
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			if (source== b1){
+				text.append("1");
+			}
+			if (source== b2){
+				text.append("2");
+			}
+			if (source== b3){
+				text.append("3");
+			}
+			if (source== b4){
+				text.append("4");
+			}
+			if (source== b5){
+				text.append("5");
+			}
+			if (source== b6){
+				text.append("6");
+			}
+			if (source== b7){
+				text.append("8");
+			}
+			if (source== b8){
+				text.append("8");
+			}
+			if (source== b9){
+				text.append("9");
+			}
+			if (source== b0){
+				text.append("0");
+			}
+			if (source== badd){
+				number1=numb();
+				text.setText("");
+				addc=1;
+				subc=0;
+				mulc=0;
+				divc=0;
+			}
+			if (source== bsub){
+				number1=numb();
+				text.setText("");
+				addc=0;
+				subc=1;
+				mulc=0;
+				divc=0;
+			}
+			if (source== bmul){
+				number1=numb();
+				text.setText("");
+				addc=0;
+				subc=0;
+				mulc=1;
+				divc=0;
+			}
+			if (source== bdiv){
+				number1=numb();
+				text.setText("");
+				addc=0;
+				subc=0;
+				mulc=0;
+				divc=1;
+			}
+			
+			if (source== bequals){
+				number2= numb();
+				if(addc >0){
+					result=number1+number2;
+					text.setText(Double.toString(result)); 
+				}
+				if(subc >0){
+					result=number1-number2;
+					text.setText(Double.toString(result)); 
+				}
+				if(mulc >0){
+					result=number1*number2;
+					text.setText(Double.toString(result)); 
+				}
+				if(divc >0){
+					result=number1/number2;
+					text.setText(Double.toString(result)); 
+				}
+				
+				
+			}
+			if (source ==bclear){
+				number1=0;
+				number2=0;
+				text.setText("");
+				
+			}
+			
+			
+		}
+		public double  numb(){
+			long num1 ;
+			String s;
+			s = text.getText();
+			 num1=  Integer.parseInt(s);
+			return num1;
+			
+			
+		}
+
+		
+	}
